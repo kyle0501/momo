@@ -52,22 +52,10 @@ let scrape = async () => {
     var ref = db.ref("/");
     ref.set(value);
     ref.once("value", function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-            var key = childSnapshot.key;
-            var childData = childSnapshot.val();              
-          
-            var title_val = childSnapshot.val().title;
-            var price_val = childSnapshot.val().price;
-            var website_val = childSnapshot.val().website;
-            $("#title").append(title_val);
-            $("#price").append(price_val);
-            $("#website").append(website_val);
-            });
-          });
     console.log(snapshot.val());
 });
-    // res.send(value);
+     res.send(value);
  });
-
+})
 var server = app.listen(8081, function () {
 })
